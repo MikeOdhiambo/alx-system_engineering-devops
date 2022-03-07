@@ -1,6 +1,7 @@
 The list of the scripts and what they do
 
 0- Prints Hello, World to the standard output
+
 1- Displays a confused smiley face to the screen
 2- Displays the contents of the /etc/passwd file
 3- Displays the contents of both the /etc/passwd and /etc/hosts files
