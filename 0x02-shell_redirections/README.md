@@ -45,3 +45,4 @@ The list of the scripts and what they do
 21- Reverses an input
 
 22- Displays all users and their home directories, sorted by users
+100- List all empty files and folders in the current directory
