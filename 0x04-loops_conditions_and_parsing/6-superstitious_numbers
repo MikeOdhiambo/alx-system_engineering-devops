@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Displays numbers from 1-20 with a different text for certain ones
+
+COUNTER=1
+while [ $COUNTER -ne 21 ]
+do
+	case $COUNTER in
+	
+	4)
+	echo "bad luck from China"
+	;;
+	9)
+	echo "bad luck from Japan"
+	;;
+	17)
+	echo "bad luck from Italy"
+	;;
+	*)
+	echo "$COUNTER"
+	;;
+	esac
+	((COUNTER++))
+done
