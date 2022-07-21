@@ -2,7 +2,7 @@
 # The infamous FizzBuzz for bash
 
 COUNTER=1
-while [ $COUNTER -ne 100 ]
+while [ $COUNTER -ne 101 ]
 do
 	if [ $((COUNTER%15)) -eq 0 ]
 	then
