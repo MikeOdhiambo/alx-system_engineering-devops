@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script prints "Best School" using while loop
+
+COUNTER=0
+while [ $COUNTER -ne 10 ]
+do
+	echo "Best School"
+	((COUNTER++))
+done
