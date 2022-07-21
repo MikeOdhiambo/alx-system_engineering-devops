@@ -2,13 +2,13 @@
 # This script displays a phrase 9 times and a different one at 10
 
 COUNTER=1
-while [ $COUNTER -ne 11 ]
+while [ $COUNTER -lt 10 ]
 do
 	if [ $COUNTER -eq 9 ]
 	then
-		echo "Hi"
-	else
 		echo "Best School"
+		echo "Hi"
 	fi
+	echo "Best School"
 	((COUNTER++))
 done
