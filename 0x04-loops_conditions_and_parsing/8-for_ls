@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Lists the itema in current dir after formatting
+
+LIST="$(ls .)"
+for item in $LIST
+do
+	echo "$item" | cut -d'-' -f2-
+done
