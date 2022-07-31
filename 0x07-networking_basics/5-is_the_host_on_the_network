@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Pings an IP address given as an argument
 addr=$1
 if [ "$addr" ]
 then
