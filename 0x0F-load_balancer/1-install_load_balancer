@@ -5,7 +5,7 @@ sudo apt-get install --no-install-recommends software-properties-common
 sudo add-apt-repository ppa:vbernat/haproxy-2.0
 sudo apt-get install haproxy=2.0.\*
 echo "ENABLED=1" >> /etc/default/haproxy
-echo "listen http_web" >> /etc/haproxy/haproxy.cfg
+echo "listen alx_servers" >> /etc/haproxy/haproxy.cfg
 sed -i '/listen http_web/a \\tbind :80' /etc/haproxy/haproxy.cfg
 sed -i '/bind :80/a \\tmode http' /etc/haproxy/haproxy.cfg
 sed -i '/mode http/a \\tbalance roundrobin' /etc/haproxy/haproxy.cfg
