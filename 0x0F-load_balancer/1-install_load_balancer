@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
-# Configures a new installation of HAProxy
-sudo apt-get update
-sudo apt-get install haproxy
-echo 'ENABLED=1' >> /etc/default/haproxy
-mv /etc/haproxy/haproxy.cfg{,.original}
-cp /etc/haproxy/haproxy.cfg.original /etc/haproxy/haproxy.cfg
-echo 'backend web_servers' >> /etc/haproxy/haproxy.cfg
-sed -i '/backend web_servers/a \\tmode http' /etc/haproxy/haproxy.cfg
-sed -i '/mode http/a \\tstats enable' /etc/haproxy/haproxy.cfg
-sed -i '/stats enable/a \\tbalance roundrobin' /etc/haproxy/haproxy.cfg
+# Configures new HAProxy installation on Ubuntu
+sudo apt-get -y update
+sudo apt-get install --no-install-recommends software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.0
+sudo apt-get install haproxy=2.0.\*
+echo "ENABLED=1" >> /etc/default/haproxy
+echo "listen http_web" >> /etc/haproxy/haproxy.cfg
+sed -i '/listen http_web/a \\tbind :80' /etc/haproxy/haproxy.cfg
+sed -i '/bind :80/a \\tmode http' /etc/haproxy/haproxy.cfg
+sed -i '/mode http/a \\tbalance roundrobin' /etc/haproxy/haproxy.cfg
 sed -i '/balance roundrobin/a \\tserver 20141-web-01 18.232.52.18:80 check' /etc/haproxy/haproxy.cfg
-sed -i '/server 20141-web-01 18.232.52.18:80 check/a \\tserver 20141-web-02 3.94.129.25:80 check' /etc/haproxy/haproxy.cfg
+sed -i '/server 20141-web-01 18.232.52.18 check/a \\tserver 20141-web-01 18.232.52.18:80 check' /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
-
-
