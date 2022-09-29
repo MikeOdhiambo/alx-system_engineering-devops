@@ -10,5 +10,5 @@ sed -i '/listen http_web/a \\tbind :80' /etc/haproxy/haproxy.cfg
 sed -i '/bind :80/a \\tmode http' /etc/haproxy/haproxy.cfg
 sed -i '/mode http/a \\tbalance roundrobin' /etc/haproxy/haproxy.cfg
 sed -i '/balance roundrobin/a \\tserver 20141-web-01 18.232.52.18:80 check' /etc/haproxy/haproxy.cfg
-sed -i '/server 20141-web-01 18.232.52.18 check/a \\tserver 20141-web-01 18.232.52.18:80 check' /etc/haproxy/haproxy.cfg
+sed -i '/server 20141-web-01 18.232.52.18 check/a \\tserver 20141-web-02 3.94.129.25:80 check' /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
