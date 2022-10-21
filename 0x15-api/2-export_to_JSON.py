@@ -7,6 +7,7 @@ if __name__ == "__main__":
     import requests
     from sys import argv
 
+    fname = argv[1] + ".json"
     userId = int(argv[1])
     userReq = requests.get("https://jsonplaceholder.typicode.com/users/{}".
                            format(userId))
@@ -20,5 +21,5 @@ if __name__ == "__main__":
                  "completed": todo.get("completed"),
                  "username": userJson.get("username")}
         dets.get("{}".format(userId)).append(entry)
-    with open("USER_ID.json", "w", encoding="utf-8") as f:
+    with open(fname, "w", encoding="utf-8") as f:
         json.dump(dets, f)
