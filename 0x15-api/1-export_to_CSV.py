@@ -7,6 +7,7 @@ if __name__ == "__main__":
     import requests
     from sys import argv
 
+    fname = argv[1] + ".csv"
     userId = int(argv[1])
     userReq = requests.get("https://jsonplaceholder.typicode.com/users/{}".
                            format(userId))
@@ -18,7 +19,7 @@ if __name__ == "__main__":
     for item in todosJson:
         if item.get("userId") == userId:
             tasks.append(item)
-    with open("USER_ID.csv", mode="w") as csv_file:
+    with open(fname, mode="w") as csv_file:
         fieldnames = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS",
                       "TASK_TITLE"]
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames, delimiter=',',
