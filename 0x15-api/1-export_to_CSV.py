@@ -21,7 +21,8 @@ if __name__ == "__main__":
     with open("USER_ID.csv", mode="w") as csv_file:
         fieldnames = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS",
                       "TASK_TITLE"]
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames, delimiter=',',
+                                quotechar='"', quoting=csv.QUOTE_ALL)
 
         for task in tasks:
             writer.writerow({"USER_ID": userId, "USERNAME": userName,
